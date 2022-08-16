@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客</title>
+  <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+  <link rel="stylesheet" href="../../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
+  <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+
+<br>
+<br>
+<br>
+
+<div class="ui m-opacity m-margin-top-max container">
+<img src="/static/images/404.jpg" th:src="@{/images/404.jpg}" alt="" class="ui rounded bordered fluid image">
+</div>
+<div class="m-margin-top-max" align="center">
+  <a href="#" th:href="@{/}">
+   <button type="button" class="ui teal button m-mobile-wide"><i class="home icon"></i>返回首页</button>
+  </a>
+</div>
+
+<br>
+<br>
+
+
+
+<div th:include="com/footer :: common_footer"></div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>照片墙-DiCraft帝少菌の小屋</title>
+    <meta name=”Description” Content=”DiCraft的个人博客，照片墙页面，收录ONESTAR个人生活照片”>
+    <meta name=”Keywords” Content=”DiCraft,照片墙,照片″>
+    <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../static/lib/picture/css/jkresponsivegallery.css" th:href="@{/lib/picture/css/jkresponsivegallery.css}">
+</head>
+<body>
+
+<!--导航-->
+<div th:include="com/navigation :: common_navigation"></div>
+
+<!--顶部图片-->
+<div class="m-bg-type_outer" style="width: 100%;height: 40%">
+    <img src="../static/images/picturebg.jpg" th:src="@{http://images.newstar.net.cn/img/picture.jpg}" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover">
+        <div class="ui container" style="position: relative ;bottom: -540px;">
+            <div class="m-font-size-title m-right-bottom" align="center" style="font-family:'STXingkai'">照片墙</div>
+            <div class="m-font-size-text-init-title m-margin-top" align="center">华阳洞口金泉水，流入宫墙作小渠，任转秦淮出江去，不应久住化龙鱼。</div>
+        </div>
+    </div>
+</div>
+
+<!--照片墙-->
+<div id="picture-main">
+
+    <article class="thumb" th:each="picture : ${pictures}">
+        <div class="ma5-gallery">
+            <div class="rthumbnail">
+                <a href="../static/images/backimg1.jpg" th:href="@{${picture.pictureaddress}}">
+                    <img class="picture-zmki_px" src="../static/images/backimg1.jpg" th:src="@{${picture.pictureaddress}}">
+                </a>
+                <div class="m-picture-text" th:text="${picture.picturename}"></div>
+                <div  class="rcaption">
+                    <div style="font-size: large;" th:text="${picture.picturename}">玉缺抱瑕</div>
+                    <div style="font-size: 16px" class="m-margin-top" th:text="${picture.picturetime}">2022-08-02 重庆</div>
+                    <p style="font-size: 16px" th:text="${picture.picturedescription}">天地玄法定乾坤，山河江岳耀吾门。运机巧变藏虚实，广化万物道长存。</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+</div>
+
+
+
+<!--置顶图标-->
+<div id="toolbar" class="m-padded-tb-large m-fixed m-right-bottom">
+    <a href="#" class="ui center aligned basic segment icon"><i class="ui medium orange chevron up icon"></i> </a>
+</div>
+
+<div th:include="com/footer :: common_footer"></div>
+
+
+<script src="../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
+<script src="../static/lib/semantic/dist/semantic.min.js" th:src="@{/lib/semantic/dist/semantic.min.js}"></script>
+<script src="../static/lib/picture/js/jquery.min.js" th:src="@{/lib/picture/js/jquery.min.js}"></script>
+<script src="../static/lib/picture/js/jkresponsivegallery.js" th:src="@{/lib/picture/js/jkresponsivegallery.js}"></script>
+
+
+<script>
+
+    // $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+
+    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+
+
+    $(function() {
+        $('.rthumbnail').responsivegallery();
+    });
+
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+  </script>
+</body>
+</html>

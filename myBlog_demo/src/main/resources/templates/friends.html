@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友人帐-DiCraft帝少菌の小屋</title>
+    <meta name=”Description” Content=”DiCraft的个人博客，友人帐页面，博客友链显示”>
+    <meta name=”Keywords” Content=”DiCraft,友人帐,友链″>
+    <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+<!--导航-->
+<div th:include="com/navigation :: common_navigation"></div>
+
+<!--顶部图片-->
+<div class="m-bg-type_outer" style="width: 100%;height: 40%">
+    <img src="../static/images/friendsbg.jpg" th:src="@{http://images.newstar.net.cn/img/friendsbg.jpg}" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover">
+        <div align="center">
+        <div class="ui container" align="center" style="position: relative ;bottom: -540px;" >
+            <div class="m-font-size-title " align="center" style="font-family:'STXingkai'">友人帐</div>
+            <div class="m-font-size-text-init-title m-margin-top" align="center">古岂无人，孤标凌云谁与朋。高冢笑卧，春秋一阕任琦行。</div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<!--中间内容-->
+<div  class="m-margin- animated fadeIn">
+    <div class="ui m-opacity container">
+        <div class="box-shadow-max">
+        <div class="ui segment m-padded-tb-large m-opacity">
+            <div class="ui container">
+                <div class="" style="font-size: 35px;font-weight: bold" align="center">友人入帐须知</div>
+                    <ui class="list">
+                        <div class="m-margin-left-mini m-margin-tb-tiny" style="font-size: large;font-weight: bold">网站要求</div>
+                        <br>
+                        <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">无色情内容，无政治敏感内容，网站要能长期正常访问</li>
+                        <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">二十篇以上个人原创文章，两个月内有新文章更新</li>
+                        <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">原创博客、技术博客、游记博客优先</li>
+                        <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">需要交换友链，先把本站添加到你的网站中，然后根据下面的格式，给我发email或在留言板给我留言~</li>
+                        <br>
+                        <div class="m-margin-left-mini m-margin-tb-tiny" style="font-size: large;font-weight: bold">申请格式</div>
+                        <br>
+                        <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">博客标题：DiCraft帝少菌の小屋</li>
+                        <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">博客地址：http://www.dicraft.cn/</li>
+                        <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">图片地址：http://www.dicraft.cn/images/a.jpg</li>
+                    </ui>
+            </div>
+        </div>
+        </div>
+
+        <!--友人帐区域-->
+        <div class="box-shadow-max">
+        <div class="ui top attached teal m-opacity segment box-shadow-max">
+            <div class="ui m-padded-tb-large m-container-tiny">
+                <div class="ui stackable m-container-mini m-opacity grid">
+
+                    <!--友人帐显示区域-->
+                    <div class="m-margin-tb-tiny four wide column" th:each="friendlink : ${friendlinks}">
+                        <a href="#" class="class_outer" th:href="@{${friendlink.blogaddress}}" target="_blank">
+                            <div align="center">
+                                <div class="friends-link">
+                                    <img src="../static/images/me.jpg" th:src="@{${friendlink.pictureaddress}}"  alt="" class="friends-link-image">
+                                    <div class="m-margin-top">
+                                     <h4 class="m-font-size-text-friends m-margin-tb-tiny" th:text="${friendlink.blogname}">ONESTAR</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--置顶图标-->
+<div id="toolbar" class="m-padded-tb-large m-fixed m-right-bottom">
+    <a href="#" class="ui center aligned basic segment icon"><i class="ui medium orange chevron up icon"></i> </a>
+</div>
+
+
+<br>
+<br>
+<div th:include="com/footer :: common_footer"></div>
+
+
+<script src="../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
+<script src="../static/lib/semantic/dist/semantic.min.js" th:src="@{/lib/semantic/dist/semantic.min.js}"></script>
+
+
+<script>
+
+    // $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+
+    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+
+    
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+</script>
+</body>
+</html>

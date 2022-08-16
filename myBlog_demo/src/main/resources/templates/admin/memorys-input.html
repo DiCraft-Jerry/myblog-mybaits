@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>流年新增</title>
+  <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+  <link rel="stylesheet" href="../../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
+  <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+<!--导航栏-->
+<nav class="ui inverted gird-header" >
+  <div class="ui container">
+    <div class="ui inverted secondary stackable menu">
+      <h2 class="ui olive header item" style="font-family: STSong">管理后台</h2>
+      <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i class="home icon"></i>文章管理</a>
+      <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide"><i class="clone outline icon"></i>分类管理</a>
+      <a href="#" th:href="@{/admin/memorys}" class="active m-item item m-mobile-hide"><i class="coffee icon"></i>流年记管理</a>
+      <a href="#" th:href="@{/admin/friendlinks}" class="m-item item m-mobile-hide"><i class="pencil alternate icon"></i>友链管理</a>
+      <a href="#" th:href="@{/admin/pictures}" class="m-item item m-mobile-hide"><i class="image icon"></i>相册管理</a>
+      <a href="#" th:href="@{/admin/resources}" class="m-item item m-mobile-hide"><i class="graduation cap icon"></i>资源管理</a>
+      <div class="right m-item m-mobile-hide menu">
+        <div class="ui dropdown  item">
+          <div class="text">
+            <img class="ui avatar image" src="/static/images/me.jpg" th:src="@{${session.user.avatar}}">
+            <span th:text="${session.user.nickname}">oneStar</span>
+          </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
+</nav>
+
+  <div class="m-padded-tb-hugex">
+  <div class="ui attached pointing menu">
+    <div class="ui container">
+      <div class="right menu">
+        <a href="#" th:href="@{/admin/memorys/input}" class="teal active item">新增</a>
+        <a href="#" th:href="@{/admin/memorys}" class="item">列表</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-massive">
+    <div class="ui container">
+      <form action="#" method="post" th:action="*{id}==null ? @{/admin/memorys} : @{/admin/memorys/{id}(id=*{id})} " th:object="${memory}" class="ui form">
+        <input type="hidden" name="id" th:value="*{id}">
+        <div class=" field">
+          <div class="ui left labeled input m-margin-top">
+            <label class="ui teal basic label">图片地址</label>
+            <input type="text" name="pictureAddress" placeholder="图片地址" th:value="*{pictureAddress}">
+          </div>
+<!--          <div class="ui left labeled input m-margin-top">-->
+<!--            <label class="ui teal basic label">流年记</label>-->
+<!--            <input type="text" name="memory" placeholder="图片描述" th:value="*{memory}">-->
+<!--          </div>-->
+
+
+
+          <div class="required field m-margin-top">
+            <textarea name="memory" placeholder="说点什么..." maxlength="200" th:text="*{memory}"></textarea>
+          </div>
+
+
+        </div>
+
+        <div class="ui error message"></div>
+        <!--/*/
+          <div class="ui negative message" th:if="${#fields.hasErrors('pictureAddress')}">
+            <i class="close icon"></i>
+            <div class="header">验证失败</div>
+            <p th:errors="*{pictureAddress}">提交信息不符合规则</p>
+          </div>
+        /*/-->
+        <div class="ui right aligned container">
+          <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
+          <button class="ui teal submit button">提交</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<div th:include="com/footer :: common_footer"></div>
+
+<script src="../../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
+<script src="../../static/lib/semantic/dist/semantic.min.js" th:src="@{/lib/semantic/dist/semantic.min.js}"></script>
+
+
+  <script>
+
+    $('.ui.form').form({
+      fields : {
+        title : {
+          identifier: 'pictureaddress',
+          rules: [{
+            type : 'empty',
+            prompt: '请输入照片地址'
+          }]
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>

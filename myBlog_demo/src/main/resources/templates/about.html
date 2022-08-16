@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我-DiCraft帝少菌の小屋</title>
+    <meta name=”Description” Content=”DiCraft的个人博客，专注于技术生活分享”>
+    <meta name=”Keywords” Content=”DiCraft,关于我,何惧茫茫沧海一声笑″>
+
+    <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+<!--导航-->
+<div th:include="com/navigation :: common_navigation"></div>
+
+
+<!--顶部背景图片-->
+<div class="m-bg-type_outer" style="width: 100%;height: 40%">
+    <img src="../static/images/aboutbg.jpg" th:src="@{http://images.newstar.net.cn/img/aboutme.png}" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover">
+        <div class="ui container" style="position: relative ;bottom: -540px;">
+            <div class="m-font-size-title" align="center" style="font-family:'STXingkai'">关于我</div>
+            <div class="m-font-size-text-init-title m-margin-top" align="center">知水为命顺逆同，浩然莫测深浅中。<br>无波沧海掩汹涌，渊渟不动现鱼龙。</div>
+        </div>
+    </div>
+</div>
+
+<!--个人资料描述-->
+<div class="ui container m-opacity box-shadow-max">
+    <div class="ui segment m-margin-" align="center">
+        <div class="m-margin-top-large" align="center">
+            <img class="ui circular image" align="center" src="../static/images/me.jpg" th:src="@{/images/me.jpg}" style="width: 150px;height: 150px;">
+        </div>
+    <div class="m-margin-top-small" style="font-size: x-large;font-family: STSong" align="center">DiCraft</div>
+
+    <div class="m-margin-top" align="center">
+        <a href="#" class="ui qq circular icon button" data-content="2046623952" data-position="bottom center"><i class="qq icon"></i></a>
+        <a href="https://github.com/DiCraft-Jerry" target="_blank" class="ui github circular icon button" data-content="点击跳转GitHub" data-position="bottom center"><i class="github icon"></i></a>
+        <a href="https://blog.csdn.net/qq_38594872" target="_blank" class="ui csdn circular icon button" data-content="点击跳转CSDN" data-position="bottom center"><i class="copyright outline icon"></i></a>
+        <a href="#" class="ui email circular icon button" data-content="dicraftlover@outlook.com" data-position="bottom center"><i class="envelope  icon"></i></a>
+    </div>
+    <div class="ui qq-qr flowing popup transition hidden">
+        <img src="../static/images/img.png" th:src="@{/images/img.png}" alt="" class="ui rounded image" style="width: 110px">
+        <div align="center">QQ</div>
+    </div>
+        <hr class="m-margin-top-small" style="width: 30%">
+        <br>
+        <div>
+            <p>“你好，世界~”</p>
+            <p>“每当我学习一门语言，总会在冥冥之中有个声音在说着”</p>
+            <p>“我是DiCraft，是帝少菌”</p>
+            <p>是00后</p>
+            <p>是一个爱编程、爱运动、爱折腾的孩子</p>
+            <br>
+            <p>人永远都是孩子</p>
+            <p>世界很大，而好奇心使我们接近它的边界</p>
+            <p>这世上的每一个元素都是一直小鸟</p>
+            <p>好奇心驱使着我去探索、去了解我所不知道的它们</p>
+            <p>因为它们的每一片羽毛都闪耀着自由的光辉</p>
+            <p> 七弦抚尽，何处觅知音</p>
+            <p>但向朗月空林</p>
+            <p>翰墨残迹，谁得千秋理</p>
+            <p>且听松涛竹意</p>
+            <p>届时，我会说</p>
+            <p>永远相信美好的事情即将发生！</p>
+        </div>
+        <hr class="m-margin-top-large">
+        <br>
+        <h2 class="m-margin-tb-tiny" style="font-size: xx-large;font-weight: bold;color: #F08047;font-family: STSong">广告招商位</h2>
+            <div class="ui orange basic label m-margin-tb-tiny">
+            <p style="font-size: medium">江声岳色，万仞峥嵘剑长歌；&nbsp; &nbsp; &nbsp; &nbsp; 青冥浩荡，天涯孤舠尽折蒿，&nbsp; &nbsp; &nbsp; &nbsp; 云辟千层巅，还看一山高。&nbsp; &nbsp; &nbsp; &nbsp; </p>
+            </div>
+<!--            <div class="ui orange basic label">-->
+<!--                <div class="ui images" style="font-size: inherit !important;">-->
+<!--                    <div class="image">-->
+<!--                        <img src="../static/images/ad.jpg" th:src="@{/images/ad.jpg}" alt="" class="ui rounded bordered image" style="width: 180px">-->
+<!--                        <div>A</div>-->
+<!--                    </div>-->
+<!--                    <div class="image">-->
+<!--                        <img src="../static/images/ad.jpg" th:src="@{/images/ad.jpg}" alt="" class="ui rounded bordered image" style="width: 180px">-->
+<!--                        <div>B</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+    <!--<div class="hiddenDiv"></div>-->
+    </div>
+</div>
+
+
+<!--置顶图标-->
+<div id="toolbar" class="m-padded-tb-large m-fixed m-right-bottom">
+    <a href="#" class="ui center aligned basic segment icon"><i class="ui medium orange chevron up icon"></i> </a>
+</div>
+
+  <br>
+  <br>
+
+<div th:include="com/footer :: common_footer"></div>
+
+
+<script src="../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
+<script src="../static/lib/semantic/dist/semantic.min.js" th:src="@{/lib/semantic/dist/semantic.min.js}"></script>
+
+  <script>
+      // $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+
+      $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+
+
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    // // 显示公众号
+    // $('.tencent').popup({
+    //     popup : $('.tencent-qr'),
+    //     position: 'bottom center'
+    // });
+    //
+    // // 显示微信
+    // $('.wechat').popup({
+    //     popup : $('.wechat-qr'),
+    //     position: 'bottom center'
+    // });
+
+    // 显示QQ
+    $('.qq').popup({
+        popup : $('.qq-qr'),
+        position: 'bottom center'
+    });
+
+    // 显示邮箱
+    $('.email').popup();
+
+    // 显示CSDN
+    $('.csdn').popup();
+
+      // 显示github
+      $('.github').popup();
+
+      
+
+  </script>
+</body>
+</html>

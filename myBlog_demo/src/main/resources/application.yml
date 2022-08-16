@@ -1,0 +1,19 @@
+spring:
+  #页面配置
+  thymeleaf:
+    mode: HTML
+  #环境配置
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+
+comment.avatar: /images/avatar.png
+message.avatar: /images/avatar.png
+
+#mybatis相关配置
+mybatis:
+  type-aliases-package: cn.dicraft.myblog.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://162.14.117.124:3306/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    hikari:
+      max-lifetime: 500000
+
+  mail:
+    host: smtp.outlook.com
+    username: dicraftlover@outlook.com
+    address: dicraftlover@outlook.com
+    password: 498956A^
+    default-encoding: utf-8
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+  #日志记录配置
+  level:
+    root: info
+    cn.dicraft: debug
+  file:
+    name: log/blog-dev.log
+
+  redis:
+    host: 162.14.117.124
+    port: 6379
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
+server:
+  port: 8087
+
+

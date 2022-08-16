@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源库-DiCraft帝少菌の小屋</title>
+    <meta name=”Description” Content=”DiCraft的个人博客，资源库页面，收录实用的在线资源网站”>
+    <meta name=”Keywords” Content=”DiCraft,资源库,资源″>
+    <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+<!--导航-->
+<div th:include="com/navigation :: common_navigation"></div>
+
+
+<!--顶部图片-->
+<div class="m-bg-type_outer" style="width: 100%;height: 40%">
+    <img src="../static/images/resources.jpg" th:src="@{/images/resources.jpg}" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover">
+        <div align="center">
+        <div class="ui container" align="center" style="position: relative ;bottom: -540px;" >
+            <div class="m-font-size-title " align="center" style="font-family:'STXingkai'">资源库</div>
+            <div class="m-font-size-text-init-title m-margin-top" align="center">来去风云逸闲休，得舍皆是因中求，过眼浮云万千事，尽散花雨落心头。</div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<!--中间内容-->
+<div  class="m-margin- animated fadeIn">
+    <div class="ui m-opacity container">
+
+        <div class="ui segment m-opacity" >
+            <div class="ui container" align="center">
+                <div class="ui labeled button m-margin-tb-tiny" >
+                    <a href="#studyresource" class="ui basic teal button">学习资源</a>
+                    <div class="ui basic teal left pointing label" th:text="${studyResourceTotle}">22</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-tiny">
+                    <a href="#pictureresource" class="ui basic teal button">图片资源</a>
+                    <div class="ui basic teal left pointing label" th:text="${pictureResourceTotle}">22</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-tiny">
+                    <a href="#officeresource" class="ui basic teal button">办公资源</a>
+                    <div class="ui basic teal left pointing label" th:text="${officeResourceTotle}">22</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-tiny">
+                    <a href="#recreationresource" class="ui basic teal button">娱乐资源</a>
+                    <div class="ui basic teal left pointing label" th:text="${recreationResourceTotle}">22</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-tiny">
+                    <a href="#designresource" class="ui basic teal button">设计资源</a>
+                    <div class="ui basic teal left pointing label" th:text="${designResourceTotle}">22</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-tiny">
+                    <a href="#searchresource" class="ui basic teal button">搜索资源</a>
+                    <div class="ui basic teal left pointing label" th:text="${searchResourceTotle}">22</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-tiny">
+                    <a href="#toolresource" class="ui basic teal button">工具资源</a>
+                    <div class="ui basic teal left pointing label" th:text="${toolResourceTotle}">22</div>
+                </div>
+
+                <a onclick="addResource()" class="ui red basic button m-margin-tb-tiny">添加资源</a>
+
+            </div>
+        </div>
+
+        <div class="ui success main-view message" th:unless="${#strings.isEmpty(message)}">
+            <i class="close icon"></i>
+            <div class="" th:text="|提示： ${message}">提示：恭喜，操作成功！</div>
+        </div>
+
+        <!--资源区域-->
+        <div class="box-shadow-max">
+        <div class="ui top attached teal m-opacity segment box-shadow-max">
+            <div class="ui m-padded-tb-large">
+                <div class="ui stackable m-opacity grid">
+
+                    <h2 id="studyresource" style="margin: 0 auto" class="ui header">
+                        <i class="book icon"></i>
+                        <div class="content">
+                            <span>学习资源</span>
+                        </div>
+                    </h2>
+
+                    <div class="ui stackable four cards m-margin-top grid" style="width: 6000px" >
+                        <a th:href="@{${studyResource.resourceAddress}}" target="_blank" class="orange card" th:each="studyResource : ${studyresource}">
+                            <div class="content" >
+                                <img class="left circular floated mini ui image" src="../static/images/me.jpg" style="width: 45px;height: 45px;" th:src="@{${studyResource.pictureAddress}}">
+                                <div class="left" style="font-size: medium;font-weight: bold;color: #2C7EEA" th:text="${studyResource.resourceName}">B站</div>
+                                <div class="meta" style="" th:text="${studyResource.secondType}">视频类</div>
+                                <div class="description" th:text="${studyResource.resourceDescription}"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h2 id="pictureresource" style="margin: 0 auto" class="ui header m-margin-top">
+                        <i class="camera icon"></i>
+                        <div class="content">
+                            图片资源
+                        </div>
+                    </h2>
+
+                    <!--<div class="ui inverted divided stackable grid">-->
+                    <div class="ui stackable four cards m-margin-top grid" style="width: 6000px" >
+                        <a target="_blank" href="https://onestar.newstar.net.cn/" th:href="@{${pictureResource.resourceAddress}}" class="orange card" th:each="pictureResource : ${pictureresource}">
+                            <div class="content" >
+                                <img class="left circular floated mini ui image" src="../static/images/me.jpg" style="width: 45px;height: 45px;" th:src="@{${pictureResource.pictureAddress}}">
+                                <div class="left" style="font-size: medium;font-weight: bold;color: #2C7EEA" th:text="${pictureResource.resourceName}">B站</div>
+                                <div class="meta" style="" th:text="${pictureResource.secondType}">视频类</div>
+                                <div class="description" th:text="${pictureResource.resourceDescription}"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h2 id="officeresource" style="margin: 0 auto" class="ui header m-margin-top">
+                        <i class="laptop icon"></i>
+                        <div class="content">
+                            办公资源
+                        </div>
+                    </h2>
+
+                    <!--<div class="ui inverted divided stackable grid">-->
+                    <div class="ui stackable four cards m-margin-top grid" style="width: 6000px" >
+                        <a target="_blank" href="https://onestar.newstar.net.cn/" th:href="@{${officeResource.resourceAddress}}" class="orange card" th:each="officeResource : ${officeresource}">
+                            <div class="content" >
+                                <img class="left circular floated mini ui image" src="../static/images/me.jpg" style="width: 45px;height: 45px;" th:src="@{${officeResource.pictureAddress}}">
+                                <div class="left" style="font-size: medium;font-weight: bold;color: #2C7EEA" th:text="${officeResource.resourceName}">B站</div>
+                                <div class="meta" style="" th:text="${officeResource.secondType}">视频类</div>
+                                <div class="description" th:text="${officeResource.resourceDescription}"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h2 id="recreationresource" style="margin: 0 auto" class="ui header m-margin-top">
+                        <i class="camera retro icon"></i>
+                        <div class="content">
+                            娱乐资源
+                        </div>
+                    </h2>
+
+                    <!--<div class="ui inverted divided stackable grid">-->
+                    <div class="ui stackable four cards m-margin-top grid" style="width: 6000px" >
+                        <a target="_blank" href="https://onestar.newstar.net.cn/" th:href="@{${recreationResource.resourceAddress}}" class="orange card" th:each="recreationResource : ${recreationresource}">
+                            <div class="content" >
+                                <img class="left circular floated mini ui image" src="../static/images/me.jpg" style="width: 45px;height: 45px;" th:src="@{${recreationResource.pictureAddress}}">
+                                <div class="left" style="font-size: medium;font-weight: bold;color: #2C7EEA" th:text="${recreationResource.resourceName}">B站</div>
+                                <div class="meta" style="" th:text="${recreationResource.secondType}">视频类</div>
+                                <div class="description" th:text="${recreationResource.resourceDescription}"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h2 id="designresource" style="margin: 0 auto" class="ui header m-margin-top">
+                        <i class="pencil alternate icon"></i>
+                        <div class="content">
+                            设计资源
+                        </div>
+                    </h2>
+
+                    <!--<div class="ui inverted divided stackable grid">-->
+                    <div class="ui stackable four cards m-margin-top grid" style="width: 6000px" >
+                        <a target="_blank" href="https://onestar.newstar.net.cn/" th:href="@{${designResource.resourceAddress}}" class="orange card" th:each="designResource : ${designresource}">
+                            <div class="content" >
+                                <img class="left circular floated mini ui image" src="../static/images/me.jpg" style="width: 45px;height: 45px;" th:src="@{${designResource.pictureAddress}}">
+                                <div class="left" style="font-size: medium;font-weight: bold;color: #2C7EEA" th:text="${designResource.resourceName}">B站</div>
+                                <div class="meta" style="" th:text="${designResource.secondType}">视频类</div>
+                                <div class="description" th:text="${designResource.resourceDescription}"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h2 id="searchresource" style="margin: 0 auto" class="ui header m-margin-top">
+                        <i class="search icon"></i>
+                        <div class="content">
+                            搜索资源
+                        </div>
+                    </h2>
+
+                    <!--<div class="ui inverted divided stackable grid">-->
+                    <div class="ui stackable four cards m-margin-top grid" style="width: 6000px" >
+                        <a target="_blank" href="https://onestar.newstar.net.cn/" th:href="@{${searchResource.resourceAddress}}" class="orange card" th:each="searchResource : ${searchresource}">
+                            <div class="content" >
+                                <img class="left circular floated mini ui image" src="../static/images/me.jpg" style="width: 45px;height: 45px;" th:src="@{${searchResource.pictureAddress}}">
+                                <div class="left" style="font-size: medium;font-weight: bold;color: #2C7EEA" th:text="${searchResource.resourceName}">B站</div>
+                                <div class="meta" style="" th:text="${searchResource.secondType}">视频类</div>
+                                <div class="description" th:text="${searchResource.resourceDescription}"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h2 id="toolresource" style="margin: 0 auto" class="ui header m-margin-top">
+                        <i class="wrench  icon"></i>
+                        <div class="content">
+                            工具资源
+                        </div>
+                    </h2>
+
+                    <!--<div class="ui inverted divided stackable grid">-->
+                    <div class="ui stackable four cards m-margin-top grid" style="width: 6000px" >
+                        <a target="_blank" href="https://onestar.newstar.net.cn/" th:href="@{${toolResource.resourceAddress}}" class="orange card" th:each="toolResource : ${toolresource}">
+                            <div class="content" >
+                                <img class="left circular floated mini ui image" src="../static/images/me.jpg" style="width: 45px;height: 45px;" th:src="@{${toolResource.pictureAddress}}">
+                                <div class="left" style="font-size: medium;font-weight: bold;color: #2C7EEA" th:text="${toolResource.resourceName}">B站</div>
+                                <div class="meta" style="" th:text="${toolResource.secondType}">视频类</div>
+                                <div class="description" th:text="${toolResource.resourceDescription}"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <!--</div>-->
+
+            </div>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+<!--置顶图标-->
+<div id="toolbar" class="m-padded-tb-large m-fixed m-right-bottom">
+    <a href="#" class="ui center aligned basic segment icon"><i class="ui medium orange chevron up icon"></i> </a>
+</div>
+
+<!--弹框内容-->
+<div class="ui modal" _msthidden="6">
+    <form action="#" method="post" th:action="@{/resources}" class="ui segment form">
+
+        <div class="two fields">
+            <div class="field">
+                <label>资源名称</label>
+                <input name="resourceName" type="text" placeholder="资源名称（如：CSDN）">
+            </div>
+            <div class="field">
+                <label>资源地址</label>
+                <input name="resourceAddress" type="text" placeholder="资源地址（如：https://www.csdn.net/）">
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label>一级分类</label>
+                <div class="ui fluid selection dropdown">
+                    <input type="hidden" name="firstType">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">一级分类（如：学习资源）</div>
+                    <div class="menu">
+                        <div class="item" data-value="学习资源">学习资源</div>
+                        <div class="item" data-value="图片资源">图片资源</div>
+                        <div class="item" data-value="办公资源">办公资源</div>
+                        <div class="item" data-value="娱乐资源">娱乐资源</div>
+                        <div class="item" data-value="设计资源">设计资源</div>
+                        <div class="item" data-value="搜索资源">搜索资源</div>
+                        <div class="item" data-value="工具资源">工具资源</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>二级分类</label>
+                <input name="secondType" type="text" placeholder="二级分类（如：文章类）">
+            </div>
+        </div>
+
+<!--        <div class="ui aligned container" align="center">-->
+<!--            <button class="ui teal submit button">提交</button>-->
+<!--        </div>-->
+
+
+        <div class="actions" _msthidden="2" align="center">
+            <div class="ui black deny button" _msthash="3553550" _msttexthash="44876" _msthidden="1">
+                取消
+            </div>
+            <button style="width:70px" class="ui positive submit icon button" _msthidden="1">
+                提交
+            </button>
+        </div>
+
+        <div style="text-align: center;margin-top: 10px;color: red">注：添加成功后，经管理员审核通过，即可在该页面查看添加的资源（目前只收集页面所显示的七大类资源）</div>
+
+    </form>
+
+
+
+</div>
+
+
+<br>
+<br>
+<div th:include="com/footer :: common_footer"></div>
+
+<script src="../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
+<script src="../static/lib/semantic/dist/semantic.min.js" th:src="@{/lib/semantic/dist/semantic.min.js}"></script>
+
+
+<script>
+
+
+
+    function addResource() {
+        $(".ui.modal")
+            .modal({ //各种回调方法
+                onShow: function () {
+                    console.log("正在显示");
+                },
+                onVisible: function () {
+                    console.log("完全显示");
+                },
+                onHide: function () {
+                    console.log("开始隐藏");
+                },
+                onHidden: function () {
+                    console.log("完全隐藏");
+                },
+                onApprove:function () { //单击确认按钮
+                    console.log("确认");
+                    window.location.href=url;
+
+                },
+                onDeny:function () {  //单击取消按钮
+                    console.log("拒绝")
+                }
+            })
+            .modal("show");
+        return false;
+
+    }
+
+    // $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+
+    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+    
+
+    // resourceName  resourceAddress  firstType  secondType
+    // 非空校验
+    $('.ui.form').form({
+        fields : {
+            title : {
+                identifier: 'resourceName',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入资源名称'
+                }]
+            },
+            content : {
+                identifier: 'resourceAddress',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入资源地址'
+                }]
+            },
+            typeId : {
+                identifier: 'firstType',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入一级分类'
+                }]
+            },
+            firstPicture : {
+                identifier: 'secondType',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入二级分类'
+                }]
+            },
+        }
+    });
+
+    //消息提示关闭初始化
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
+
+</script>
+</body>
+</html>
