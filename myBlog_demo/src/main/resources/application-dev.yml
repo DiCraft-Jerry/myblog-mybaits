@@ -1,17 +1,17 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://162.14.117.124:3306/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
     hikari:
       max-lifetime: 500000
 
   mail:
-    host: smtp.outlook.com
-    username: dicraftlover@outlook.com
-    address: dicraftlover@outlook.com
-    password: 498956A^
+    host: smtp.XXX.com
+    username: XXX@XXX.com
+    address: XXX@XXX.com
+    password: XXXXXX
     default-encoding: utf-8
     protocol: smtp
     properties:
@@ -29,7 +29,7 @@ spring:
     name: log/blog-dev.log
 
   redis:
-    host: 162.14.117.124
+    host: 127.0.0.1
     port: 6379
     database: 0
     timeout: 1800000
