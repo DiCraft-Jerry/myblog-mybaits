@@ -435,20 +435,6 @@ h5,h6{font-size:1em;}
       <div th:if="${blog.appreciation}">
         <div class="ui center aligned basic segment">
         <button id="payButton" class="ui orange basic circular button">赞赏</button>
-      </div>
-        <div class="ui payQR flowing popup transition hidden">
-          <div class="ui orange basic label">
-            <div class="ui images" style="font-size: inherit !important;">
-              <div class="image">
-                <img src="../static/images/zhifupay.jpg" th:src="@{/images/zhifupay.jpg}" alt="" class="ui rounded bordered image" style="width: 120px">
-                <div>支付宝</div>
-              </div>
-              <div class="image">
-                <img src="../static/images/wechatpay.jpg" th:src="@{/images/wechatpay.jpg}" alt="" class="ui rounded bordered image" style="width: 120px">
-                <div>微信</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -462,14 +448,10 @@ h5,h6{font-size:1em;}
             <li>更新时间：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2020-01-02 09:08</span></li>
             <li>版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</li>
             <li>转载声明：如果是转载栈主转载的文章，请附上原文链接</li>
-            <li>公众号转载：请在文末添加作者公众号二维码（公众号二维码见右边，欢迎关注）</li>
           </ui>
         </div>
 
         <!--微信公众号-->
-        <div class="seven wide column">
-          <img src="../static/images/oneStar1.jpg" th:src="@{/images/oneStar1.jpg}" alt="" class="ui right floated rounded bordered image" style="width: 707px">
-        </div>
       </div>
     </div>
     <div  class="ui bottom attached segment" th:if="${blog.commentabled}">
