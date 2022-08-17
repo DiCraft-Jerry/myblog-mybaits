@@ -98,23 +98,24 @@ public class BlogServiceImpl implements BlogService {
 
 
     @Override
-    @Cacheable(value = "blogList",key = "'blog'")       // redis缓存
+//    @Cacheable(value = "blogList",key = "'blog'")       // redis缓存
     /**
      * 查询首页最新博客列表信息
+     * 这里不能使用缓存技术，否则前端页面展示时会导致的分页不显示的问题
      * @return
      */
-    public List<FirstPageBlog> getFirstPageBlog() {
+    public List<FirstPageBlog> getAllFirstPageBlog() {
         return blogDao.getFirstPageBlog();
     }
 
     /**
      * 查询首页最新推荐信息
-     *
+     * 这里不能使用缓存技术，否则前端页面展示时会导致的分页不显示的问题
      * @return
      */
     @Override
-    @Cacheable(value = "commentblogList",key = "'commentblog'")
-    public List<RecommendBlog> getAllRecommendBlog() {
+//    @Cacheable(value = "commentblogList",key = "'commentblog'")
+    public List<RecommendBlog> getRecommendedBlog() {
         List<RecommendBlog> allRecommendBlog = blogDao.getAllRecommendBlog();
         return allRecommendBlog;
     }

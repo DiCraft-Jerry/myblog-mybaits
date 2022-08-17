@@ -59,13 +59,13 @@ public interface BlogService {
      * 查询首页最新博客列表信息
      * @return
      */
-    List<FirstPageBlog> getFirstPageBlog();
+    List<FirstPageBlog> getAllFirstPageBlog();
 
     /**
      * 查询首页最新推荐信息
      * @return
      */
-    List<RecommendBlog> getAllRecommendBlog();
+    List<RecommendBlog> getRecommendedBlog();
 
     /**
      * 搜索博客列表

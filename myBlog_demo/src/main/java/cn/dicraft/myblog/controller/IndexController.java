@@ -34,10 +34,11 @@ public class IndexController {
     @GetMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, RedirectAttributes attributes){
         PageHelper.startPage(pageNum,10);
+
         //查询博客列表
-        List<FirstPageBlog> allFirstPageBlog = blogService.getFirstPageBlog();
+        List<FirstPageBlog> allFirstPageBlog = blogService.getAllFirstPageBlog();
         //查询最新推荐博客
-        List<RecommendBlog> recommendedBlog = blogService.getAllRecommendBlog();
+        List<RecommendBlog> recommendedBlog = blogService.getRecommendedBlog();
         //查询最新评论
         List<NewComment> newComments = blogService.getNewComment();
 
